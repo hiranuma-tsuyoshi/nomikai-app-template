@@ -1,0 +1,62 @@
+{
+  "name": "nomikai-app",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "setup": "node scripts/setup.mjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "review:p04": "node scripts/review-p04.mjs",
+    "review:stage": "node scripts/review-stage.mjs",
+    "review:s03": "node scripts/review-s03.mjs",
+    "review:host": "node scripts/review-host.mjs",
+    "review:h06": "node scripts/review-h06.mjs",
+    "review:h07": "node scripts/review-h07.mjs",
+    "review:p06": "node scripts/review-p06.mjs",
+    "review:p07": "node scripts/review-p07.mjs",
+    "review:s05": "node scripts/review-s05.mjs",
+    "review:live": "node scripts/review-live.mjs",
+    "smoke:live": "node scripts/live-smoke.mjs",
+    "load:live": "node scripts/load-live.mjs",
+    "create-host": "node --env-file=.env.local scripts/create-host.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "@tanstack/react-query": "^5.105.0",
+    "bcryptjs": "^3.0.3",
+    "jose": "^6.2.14",
+    "nanoid": "^6.0.2",
+    "next": "15.5.28",
+    "qrcode": "^1.5.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.7"
+  },
+  "overrides": {
+    "postcss": "^8.5.32"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.0.0",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.5.28",
+    "playwright-core": "^1.64.1",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.5"
+  }
+}

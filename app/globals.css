@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+/* 高さの低い端末（320x568 など）向けのコンパクト表示 */
+@custom-variant short (@media (max-height: 650px));
+/* 高さ 700px 以下は余白だけ軽く詰める */
+@custom-variant compact (@media (max-height: 700px));
+
+@theme {
+  /* Colors */
+  --color-paper-white: #ffffff;
+  --color-charcoal: #4b4b4b;
+  --color-pencil-gray: #777777;
+  --color-faded-gray: #afafaf;
+  --color-eager-green: #58cc02;
+  --color-eager-green-strong: #3f8f00;
+  --color-eager-green-ink: #367a00;
+  --color-storybook-green: #d7ffb8;
+  --color-spark-blue: #1cb0f6;
+  --color-spark-blue-ink: #0b78b0;
+  --color-night-ink: #000437;
+  --color-alert-red: #ff4b4b;
+  --color-sun-yellow: #ffc800;
+  --color-grape-purple: #ce82ff;
+  --color-tangerine: #ff9600;
+  --color-meadow-mist: #f4f7ee;
+  --color-line-soft: #e5e5e5;
+  --color-alert-red-ink: #b42318;
+
+  /* Team colors (identification only) */
+  --color-team-a: #58cc02;
+  --color-team-b: #1cb0f6;
+  --color-team-c: #ce82ff;
+  --color-team-d: #ff9600;
+  --color-team-e: #ff4b4b;
+  --color-team-f: #ffc800;
+
+  /* Venue screen stage mode (Kahoot!-inspired) */
+  --color-stage-bg: #1b0a3d;
+  --color-stage-surface: #2d1466;
+  --color-stage-fg: #ffffff;
+  --color-stage-muted: #c9b8ff;
+  --color-stage-pink: #ff3b6b;
+  --color-stage-yellow: #ffcc00;
+  --color-stage-cyan: #00c4ff;
+  --color-stage-green: #58cc02;
+
+  /* Typography */
+  --font-sans: var(--font-mplus), var(--font-nunito), ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-rounded: var(--font-mplus), var(--font-nunito), ui-sans-serif,
+    system-ui, sans-serif;
+  --font-numeric: var(--font-nunito), var(--font-mplus), ui-sans-serif,
+    system-ui, sans-serif;
+
+  --text-caption: 13px;
+  --text-caption--line-height: 1.23;
+  --text-body: 17px;
+  --text-body--line-height: 1.7;
+  --text-subheading: 19px;
+  --text-subheading--line-height: 1.4;
+  --text-heading-sm: 32px;
+  --text-heading-sm--line-height: 1.2;
+  --text-heading: 48px;
+  --text-heading--line-height: 1.2;
+  --text-heading--letter-spacing: -0.02em;
+  --text-display: 64px;
+  --text-display--line-height: 1.2;
+  --text-display--letter-spacing: -0.02em;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-paper-white);
+    --foreground: var(--color-charcoal);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "palt" 1;
+  }
+
+  ::selection {
+    background: var(--color-storybook-green);
+    color: var(--color-night-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-spark-blue);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center rounded-xl px-4 text-[15px] font-bold transition-transform duration-100 active:translate-y-px;
+  }
+
+  .btn-primary {
+    @apply bg-eager-green text-night-ink;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-faded-gray bg-transparent text-spark-blue-ink;
+  }
+
+  .btn-danger {
+    @apply bg-alert-red text-white;
+  }
+
+  .card {
+    @apply rounded-xl border-2 border-[#e5e5e5] bg-paper-white;
+  }
+
+  .input {
+    @apply min-h-12 w-full rounded-xl border-2 border-faded-gray bg-paper-white px-4 text-body text-charcoal placeholder:text-pencil-gray focus:border-spark-blue focus:outline-none;
+  }
+
+  .stage {
+    @apply bg-stage-bg text-stage-fg;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes check-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes timer-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes stage-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stage-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@layer utilities {
+  .animate-rise-in {
+    animation: rise-in 240ms ease-out both;
+  }
+
+  .animate-check-pop {
+    animation: check-pop 320ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .animate-timer-pulse {
+    animation: timer-pulse 1s ease-in-out infinite;
+  }
+
+  .animate-stage-rise {
+    animation: stage-rise 520ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .animate-stage-pop {
+    animation: stage-pop 360ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise-in,
+  .animate-check-pop,
+  .animate-timer-pulse,
+  .animate-stage-rise,
+  .animate-stage-pop {
+    animation: none;
+  }
+}
