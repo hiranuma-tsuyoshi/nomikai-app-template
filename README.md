@@ -5,9 +5,11 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fhiranuma-tsuyoshi%2Fnomikai-app-template)
 
+> 別名のリポジトリで公開する場合は、上のDeployボタンの `repository-url` を自分のリポジトリに変更してください。
+
 ## 特徴
 
-- 参加人数の固定なし（30人規模で動作検証済み）
+- 参加人数の固定なし（30人規模を想定）
 - チーム対抗。得点は「一致率 × 10」
 - 表記ゆれの自動正規化と、司会者による意味統合
 - 回答締切後に30秒の最終確認
