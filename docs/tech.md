@@ -57,6 +57,10 @@
 6. 変更後のViewを返す
 7. 各画面は次のポーリングで最新状態を取得
 
+構成図:
+- インフラ構成: [architecture/nomikai-architecture.html](./architecture/nomikai-architecture.html)
+- ソースコード構成（機能単位）: [architecture/nomikai-code-architecture.html](./architecture/nomikai-code-architecture.html)
+
 ---
 
 ## 3. 技術スタック

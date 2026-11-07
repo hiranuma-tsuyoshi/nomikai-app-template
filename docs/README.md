@@ -27,7 +27,8 @@
 |---|---|
 | [design.md](./design.md) | Duolingo風ビジュアルのスタイルリファレンス |
 | [figma-handoff.md](./figma-handoff.md) | Figmaデザインの引き継ぎ |
-| [architecture/nomikai-architecture.html](./architecture/nomikai-architecture.html) | 構成図（[PNG](./architecture/nomikai-architecture.png) / [ダーク](./architecture/nomikai-architecture-dark.png)） |
+| [architecture/nomikai-architecture.html](./architecture/nomikai-architecture.html) | インフラ構成図（[PNG](./architecture/nomikai-architecture.png) / [ダーク](./architecture/nomikai-architecture-dark.png)） |
+| [architecture/nomikai-code-architecture.html](./architecture/nomikai-code-architecture.html) | ソースコード構成図（機能単位。画面→API→エンジン→永続化）（[PNG](./architecture/nomikai-code-architecture.png) / [ダーク](./architecture/nomikai-code-architecture-dark.png)） |
 
 ## リポジトリ直下
 

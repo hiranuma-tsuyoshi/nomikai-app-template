@@ -14,7 +14,9 @@
 - 認証は司会者キー＋参加者Cookie。ユーザーアカウントは持たない
 - 状態は1つのJSONとして保存し、クライアントはポーリングで同期する
 
-構成図: [architecture/nomikai-architecture.html](./architecture/nomikai-architecture.html)（[PNG](./architecture/nomikai-architecture.png) / [ダーク](./architecture/nomikai-architecture-dark.png)）
+構成図:
+- インフラ構成: [architecture/nomikai-architecture.html](./architecture/nomikai-architecture.html)（[PNG](./architecture/nomikai-architecture.png) / [ダーク](./architecture/nomikai-architecture-dark.png)）
+- ソースコード構成（機能単位）: [architecture/nomikai-code-architecture.html](./architecture/nomikai-code-architecture.html)（[PNG](./architecture/nomikai-code-architecture.png) / [ダーク](./architecture/nomikai-code-architecture-dark.png)）
 
 ---
 

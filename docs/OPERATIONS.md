@@ -2,7 +2,8 @@
 
 最終更新: 2026-11-07  
 参加者向けの説明は [GUIDE-PLAYER.md](./GUIDE-PLAYER.md)、司会者向けは [GUIDE-HOST.md](./GUIDE-HOST.md) を使います。  
-実装の詳細は [SPEC.md](./SPEC.md) を参照してください。
+実装の詳細は [SPEC.md](./SPEC.md) を参照してください。  
+システムの全体像は [インフラ構成図](./architecture/nomikai-architecture.html)、コードの機能構成は [ソースコード構成図](./architecture/nomikai-code-architecture.html) で確認できます。
 
 ## 役割
 

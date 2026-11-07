@@ -166,7 +166,8 @@ $env:BASE_URL="http://localhost:3000"; $env:HOST_KEY="your-host-key"; npm run sm
 - [docs/tech.md](docs/tech.md): 技術構成
 - [docs/design.md](docs/design.md): デザイン方針
 - [docs/ui-design.md](docs/ui-design.md): 画面設計
-- [docs/architecture/nomikai-architecture.html](docs/architecture/nomikai-architecture.html): 構成図
+- [docs/architecture/nomikai-architecture.html](docs/architecture/nomikai-architecture.html): インフラ構成図
+- [docs/architecture/nomikai-code-architecture.html](docs/architecture/nomikai-code-architecture.html): ソースコード構成図（機能単位）
 
 ## ライセンス
 
