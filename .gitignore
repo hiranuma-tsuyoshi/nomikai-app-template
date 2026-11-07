@@ -32,6 +32,10 @@ yarn-error.log*
 .env*
 !.env.example
 
+# local OpenCode config (never commit API keys)
+opencode.json
+opencode.jsonc
+
 # vercel
 .vercel
 
