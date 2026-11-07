@@ -174,21 +174,21 @@ svg.edges { position:absolute; inset:0; width:1100px; height:1180px; pointer-eve
       </defs>
 
       <!-- 画面 → クライアント同期 -->
-      <path class="e" d="M230 226 V320 H430 V334" marker-end="url(#ar)"/>
+      <path class="n" d="M870 226 V314 H445 V334" marker-end="url(#ar)"/>
+      <text class="el" x="650" y="326" text-anchor="middle">GET /api/stage</text>
+
+      <path class="e" d="M230 226 V320 H415 V334" marker-end="url(#ar)"/>
       <text class="el a" x="300" y="312" text-anchor="middle">GET /state</text>
 
       <path class="e" d="M550 226 V304 H760 V334" marker-end="url(#ar)"/>
       <text class="el a" x="655" y="296" text-anchor="middle">POST /api/host/*</text>
 
-      <path class="n" d="M870 226 V330 H455 V334" marker-end="url(#ar)"/>
-      <text class="el" x="650" y="322" text-anchor="middle">GET /api/stage</text>
-
       <!-- クライアント同期 → API -->
       <path class="e" d="M430 446 V530 H290 V554" marker-end="url(#ar)"/>
       <text class="el a" x="355" y="522" text-anchor="middle">fetch / poll</text>
 
-      <path class="e" d="M760 446 V545 H490 V554" marker-end="url(#ar)"/>
-      <text class="el a" x="620" y="537" text-anchor="middle">JSON</text>
+      <path class="e" d="M760 458 V536 H490 V554" marker-end="url(#ar)"/>
+      <text class="el a" x="620" y="528" text-anchor="middle">JSON</text>
 
       <!-- API 内の共通ガード -->
       <path class="n dash" d="M860 590 H724" marker-end="url(#ar)"/>
@@ -217,7 +217,7 @@ svg.edges { position:absolute; inset:0; width:1100px; height:1180px; pointer-eve
       <text class="el" x="790" y="802" text-anchor="middle">views</text>
 
       <!-- エンジン → 永続化 -->
-      <path class="e" d="M290 886 V994" marker-end="url(#ar)"/>
+      <path class="e" d="M290 902 V994" marker-end="url(#ar)"/>
       <text class="el a" x="300" y="924">read / mutate</text>
 
       <path class="e" d="M324 1030 H456" marker-end="url(#ar)"/>
