@@ -1,3 +1,5 @@
+> **目標仕様**: 本書は目標とする要件定義です。現行実装との差分は [requirements-status.md](./requirements-status.md)、実装の正本は [SPEC.md](./SPEC.md) を参照してください。
+
 # 以心伝心ゲーム 要件定義書 v1.2
 
 | 項目 | 内容 |

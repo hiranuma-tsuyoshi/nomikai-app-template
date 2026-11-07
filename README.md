@@ -23,7 +23,7 @@
 - Tailwind CSS v4
 - Supabase（Postgres）
 - Vercel（任意）
-- 状態同期: 1〜1.5秒ポーリング + `version` による楽観ロック
+- 状態同期: 1.0〜1.2秒ポーリング + `version` による楽観ロック
 
 ## 必要環境
 
@@ -146,18 +146,27 @@ $env:BASE_URL="http://localhost:3000"; $env:HOST_KEY="your-host-key"; npm run sm
 ## 制限事項
 
 - **1デプロイ = 1ルーム** です。複数イベントを同時に1つのデプロイで運用する機能はありません
+- チームの追加・定員変更・参加者移動はゲーム開始前のみです。チーム名変更・チーム削除・参加者の退出UIはありません
+- ゲーム開始後はお題を変更できません。リセットは最終結果画面からのみ行えます
+- 途中参加は可能ですが、回答受付中なら現行のお題から回答できます
 - 主催者アカウント・課金・多テナント分離は未実装です
 - UIは日本語のみです
 - Vercel Hobbyプランは非商用向けです。商用利用する場合はVercelの規約を確認してください
 
 ## ドキュメント
 
+- [docs/README.md](docs/README.md): ドキュメント索引
 - [docs/SETUP.md](docs/SETUP.md): Supabase / Vercel の詳細セットアップ
 - [docs/OPERATIONS.md](docs/OPERATIONS.md): 当日の運用手順・障害対応
-- [docs/requirements-v1.2.md](docs/requirements-v1.2.md): 要件定義
-- [docs/tech.md](docs/tech.md): 技術選定
+- [docs/GUIDE-PLAYER.md](docs/GUIDE-PLAYER.md): 参加者向け利用ガイド
+- [docs/GUIDE-HOST.md](docs/GUIDE-HOST.md): 司会者・運営向け利用ガイド
+- [docs/SPEC.md](docs/SPEC.md): 現行実装の仕様書（実装の正本）
+- [docs/requirements-v1.2.md](docs/requirements-v1.2.md): 目標とする要件定義
+- [docs/requirements-status.md](docs/requirements-status.md): 要件と実装の対応表
+- [docs/tech.md](docs/tech.md): 技術構成
 - [docs/design.md](docs/design.md): デザイン方針
 - [docs/ui-design.md](docs/ui-design.md): 画面設計
+- [docs/architecture/nomikai-architecture.html](docs/architecture/nomikai-architecture.html): 構成図
 
 ## ライセンス
 
