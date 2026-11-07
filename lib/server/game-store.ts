@@ -91,6 +91,7 @@ class FileGameStore implements GameStore {
 
 class SupabaseGameStore implements GameStore {
   private client = getSupabaseServerClient();
+  private queue: Promise<unknown> = Promise.resolve();
 
   private async readRow(): Promise<{ state: GameState; version: number } | null> {
     const { data, error } = await this.client
@@ -138,8 +139,23 @@ class SupabaseGameStore implements GameStore {
     return created.state;
   }
 
-  async mutate<T>(fn: (state: GameState) => T | Promise<T>): Promise<T> {
-    for (let attempt = 0; attempt < 12; attempt += 1) {
+  mutate<T>(fn: (state: GameState) => T | Promise<T>): Promise<T> {
+    const run = this.queue.then(() => this.mutateUnsafe(fn));
+    this.queue = run.then(
+      () => undefined,
+      () => undefined,
+    );
+    return run;
+  }
+
+  private async mutateUnsafe<T>(
+    fn: (state: GameState) => T | Promise<T>,
+  ): Promise<T> {
+    // 30人規模の一斉回答でも競合を吸収できるよう、再試行を多めに取る。
+    // 指数バックオフ + ジッターで、同時リトライの集中を避ける。
+    const maxAttempts = 40;
+
+    for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
       const row = await this.readRow();
       if (!row) {
         await this.createRow();
@@ -166,8 +182,12 @@ class SupabaseGameStore implements GameStore {
       }
       if (data && data.length > 0) return result;
 
-      // 楽観ロック競合。少し待って再試行する。
-      await new Promise((resolve) => setTimeout(resolve, 25 + attempt * 20));
+      // 楽観ロック競合。ジッター付きで待って再試行する。
+      if (attempt < maxAttempts - 1) {
+        const ceiling = Math.min(40 * 2 ** Math.min(attempt, 4), 400);
+        const delay = Math.floor(ceiling * (0.5 + Math.random() * 0.5));
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
     }
 
     throw new Error(

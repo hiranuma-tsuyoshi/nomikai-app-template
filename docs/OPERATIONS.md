@@ -29,6 +29,34 @@
 - [ ] スクリーンURLのtokenを控えた
 - [ ] 予備の司会者端末を用意した
 
+### 負荷テスト
+
+本番URLに対して、参加 → 一斉回答 → 締切 → 公開までを確認します。
+
+```bash
+BASE_URL=https://your-app.vercel.app \
+HOST_KEY=your-host-key \
+ROOM_CODE=4821 \
+TEAM_COUNT=5 \
+PLAYER_COUNT=30 \
+npm run load:live
+```
+
+PowerShell:
+
+```powershell
+$env:BASE_URL="https://your-app.vercel.app"
+$env:HOST_KEY="your-host-key"
+$env:ROOM_CODE="4821"
+$env:TEAM_COUNT="5"
+$env:PLAYER_COUNT="30"
+npm run load:live
+```
+
+- `ROOM_CODE` / `TEAM_COUNT` は本番設定に合わせる
+- テスト終了時は自動で `WAITING` に戻り、お題も復元される
+- `smoke:live` / `review:live` / `load:live` は**同時に実行しない**
+
 ### 当日開始前
 
 - [ ] 司会者PCを電源に接続

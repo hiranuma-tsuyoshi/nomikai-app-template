@@ -111,6 +111,20 @@ curl http://localhost:3000/api/health
 
 `NEXT_PUBLIC_SUPABASE_URL` はビルド時に埋め込まれるため、必ず**デプロイ前に**設定してください。変更した場合は再デプロイが必要です。
 
+### 実行リージョン
+
+`vercel.json` で東京（`hnd1`）を指定しています。Supabaseのリージョンに合わせて変更してください。
+
+| Supabase | Vercel |
+|---|---|
+| Tokyo (`ap-northeast-1`) | `hnd1` |
+| Singapore (`ap-southeast-1`) | `sin1` |
+| US East (`us-east-1`) | `iad1` |
+| US West (`us-west-1`) | `sfo1` |
+| Europe (`eu-central-1`) | `fra1` |
+
+関数とDBのリージョンが離れていると、回答が集中したときに更新の競合が長引きます。**同じ地域に揃える**のが重要です。
+
 ## 6. デプロイ後の確認
 
 1. `https://your-app.vercel.app/api/health` が `supabase` を返す
